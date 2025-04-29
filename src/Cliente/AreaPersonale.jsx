@@ -115,10 +115,6 @@ function AreaPersonale() {
             {
 
                 alert("MODIFICA AVVENUTA CON SUCCESSO");
-                response.json().then(cliente => {
-                    setUser(username);
-                    
-                })
                 //qui aggiungo un reload della pagina
                 visualizzoDati();
                 

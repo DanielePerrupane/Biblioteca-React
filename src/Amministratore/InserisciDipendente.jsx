@@ -1,10 +1,12 @@
 import LogoutOperatore from "./LogoutOperatore";
+import { useLocation, useNavigate } from "react-router-dom";
 import NavBarOperatore from "./NavBarOperatore";
 import { useState } from "react";
 
 function InserisciDipendente() {
 
-    const {user} = location.state || {}
+    const location = useLocation();
+    const {user} = location.state || {};
 
     const [nome,setNome] = useState('');
     const [cognome,setCognome] = useState('');

@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+input {
+    background-color: dimgray;
+    max-width: 600px;
+}
+
+.container 
+{
+    align-items: center;
+    
+}

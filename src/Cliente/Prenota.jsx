@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import Logout from "./Logout";
 import { useState } from "react";
 
+
+
 function Prenota() {
 
     const oggi = new Date().toISOString().split("T")[0];
@@ -94,7 +96,7 @@ function Prenota() {
         .then(response => {
             if(response.status===201)
             {
-                alert("PRENOTAZIONE AVVENUTA CON SUCCESSO!");
+                alert("INSERIMENTO AVVENUTO CON SUCCESSO");
                 setLibroTrovato(null);
             }
             if(response.status===500)
@@ -111,6 +113,7 @@ function Prenota() {
 
     return(
         <div className="w-200 h-500 bg-amber-50 rounded-2xl">
+            
             <div>
                 <p><Logout/></p>
                 <h2 className="text-black">Effettua una prenotazione {user} </h2>
@@ -139,6 +142,8 @@ function Prenota() {
                     <button className="text-white" onClick={prenotaLibro}>Prenota</button>
                     </div>
                 )}
+
+                
                 
             </div>
             

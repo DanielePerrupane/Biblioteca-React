@@ -7,12 +7,15 @@ import { Column } from "primereact/column";
 
 
 
+
 function Profilo() {
 
     const location = useLocation();
     const {user} = location.state || {};
     const navigate = useNavigate();
     const [listaLibriPrenotati, setListaLibri] = useState([]);
+
+    
 
 
     function prendiListaLibriPrenotati()

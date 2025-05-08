@@ -1,7 +1,7 @@
 import { useState } from "react";
 import NavBar from "./NavBar";
 import './RegistrazioneCliente.css'
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
     
 
@@ -17,6 +17,8 @@ function RegistrazioneCliente() {
     const [nTel, setNTel] = useState('');
     const [user, setUser] = useState('');
     const [psw, setPsw] = useState('');
+
+    const navigate = useNavigate();
 
     const catturaNome = (e) => {
         setNome(e.target.value)
@@ -122,8 +124,8 @@ function RegistrazioneCliente() {
                 <label htmlFor="psw">Password</label>
                 <input type="text" id="psw" onChange={catturaPsw}/>
                 <p>
-                    <button onClick={RegistraCliente}>Registrati</button>
-                    <Link to={"/"}>Torna Indietro</Link>
+                    <button className="blueButton" onClick={RegistraCliente}>Registrati</button>
+                    <button className="redButton" onClick={() => navigate("/")}>Indietro</button>
                 </p>
 
             </div>

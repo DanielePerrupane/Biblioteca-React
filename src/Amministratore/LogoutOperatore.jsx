@@ -8,7 +8,7 @@ function LogoutOperatore()
     }
     return(
     <>
-        <button onClick={effettuaLogout}>Logout</button>
+        <button className="redButton" onClick={effettuaLogout}>Logout</button>
     </>
     )
 }

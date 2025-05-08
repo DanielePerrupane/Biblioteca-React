@@ -1,6 +1,7 @@
 import NavBarLibro from "./NavBarLibro";
 import {useState} from "react";
 import LogoutOperatore from "./LogoutOperatore";
+import NavBarOperatore from "./NavBarOperatore";
 
 
 
@@ -46,12 +47,13 @@ function InserisciGenere() {
     return(
         <>
             <h1>Inserisci Genere</h1>
-            <LogoutOperatore></LogoutOperatore>
+            <LogoutOperatore></LogoutOperatore><br />
+            <NavBarOperatore/>
             <NavBarLibro/>
             <div className="flex flex-col gap-3 items-center">
                 Descrizione<textarea className="bg-zinc-500" name="" id="" onChange={catturaDescrizione}></textarea>
                 Nome<input type="text" className="bg-zinc-500 w-28" onChange={catturaNome}/>
-                <button onClick={inserisciGenere}>Inserisci</button>
+                <button className="blueButton" onClick={inserisciGenere}>Inserisci</button>
             </div>
         </>
     )

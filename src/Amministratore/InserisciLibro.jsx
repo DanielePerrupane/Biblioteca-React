@@ -2,6 +2,7 @@ import {Link} from "react-router-dom"
 import NavBarLibro from "./NavBarLibro";
 import { useEffect, useState } from "react";
 import LogoutOperatore from "./LogoutOperatore";
+import NavBarOperatore from "./NavBarOperatore";
 function InserisciLibro() {
 
     
@@ -99,7 +100,8 @@ function InserisciLibro() {
         <>
             <div>
                 <h1>Inserisci un nuovo Libro</h1>
-                <LogoutOperatore></LogoutOperatore>
+                <LogoutOperatore></LogoutOperatore><br />
+                <NavBarOperatore/>
                 <NavBarLibro/>
             </div>
 
@@ -115,7 +117,7 @@ function InserisciLibro() {
                         <option key={i} value={genere.idGenere}>{genere.nomeGenere}</option>
                     ))}
                 </select>
-                <button onClick={inserisciLibro}>Inserisci</button>
+                <button className="blueButton" onClick={inserisciLibro}>Inserisci</button>
                 
             </div>
         </>

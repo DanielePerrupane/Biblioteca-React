@@ -66,9 +66,13 @@ function AreaPersonale() {
             {
                 alert("non trovato")
             }
+            if(response.status===500)
+            {
+                throw new Error("ERRORE DEL SERVER!")
+            }
         })
         .then(cliente => {
-            setTimeout(() => {
+            
                 setDatiTrovati(cliente);
                 //qui devo assegnare i valori di cliente a nome cognome ecc...
                 setNome(cliente.nomeCliente);
@@ -79,10 +83,10 @@ function AreaPersonale() {
                 setUser(cliente.usernameCliente);
                 setPsw(cliente.pswCliente);
                 setLoading(false);
-              }, 1000);
+             
         })
         .catch(error => {
-            console.log(error);
+            alert(error);
             setLoading(false);
         })
     }
@@ -131,13 +135,14 @@ function AreaPersonale() {
 
 
     return(
-        <div className="w-200 h-500 bg-amber-50 rounded-2xl">
+        <div className="w-200 h-500 rounded-2xl">
             <div>
+                
+                <h2 className="text-black">Username: {user} </h2>
                 <p><Logout/></p>
-                <h2 className="text-black">Area Personale {user} </h2>
             </div>
 
-            <p className="bg-amber-100 text-shadow-amber-100">
+            <p className=" text-shadow-amber-100">
                 
                 <Link to="/Profilo" state={{user:user}}>| Home Page |</Link>
                 <Link to="/Prenota" state={{user:user}}> Prenota |</Link>
@@ -145,22 +150,16 @@ function AreaPersonale() {
                 
             </p>
             {/* aggiungere onChange agli input che si vogliono modificare */}
-            <div className="items-center bg-amber-500 text-black flex flex-col">
-                {loading ? (
-                    <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-black"></div>
-                ) : (
-                    <>
-                <label htmlFor="nome">Nome</label><input id="nome" type="text" className="w-50" value={nome} onChange={catturaNome}/>
-                <label htmlFor="cognome">Cognome</label><input id="cognome" type="text" className="w-50" value={cognome} onChange={catturaCognome}/>
-                <label htmlFor="cf">Cod Fiscale</label><input id="cf" type="text" className="w-50" value={cf} readOnly/> 
-                <label htmlFor="email">Email</label><input id="email" type="text" className="w-50" value={email} onChange={catturaEmail}/>
-                <label htmlFor="ntel">n Tel</label><input id="ntel" type="text" className="w-50" value={nTel} onChange={catturaNTel}/>
-                <label htmlFor="user">Username</label><input id="user" type="text" className="w-50" value={username} readOnly/>
-                <label htmlFor="psw">Password</label><input id="psw" type="text" className="w-50" value={psw} onChange={catturaPsw}/>
-                <button className="text-white" onClick={modificaCliente}>Modifica</button>
-                </>
-                )}
+            <div className="items-center text-black flex flex-col">
                 
+                <label htmlFor="nome">Nome</label><input id="nome" type="text" value={nome} onChange={catturaNome}/>
+                <label htmlFor="cognome">Cognome</label><input id="cognome" type="text" value={cognome} onChange={catturaCognome}/>
+                <label htmlFor="cf">Cod Fiscale</label><input id="cf" type="text" value={cf} readOnly/> 
+                <label htmlFor="email">Email</label><input id="email" type="text" value={email} onChange={catturaEmail}/>
+                <label htmlFor="ntel">n Tel</label><input id="ntel" type="text" value={nTel} onChange={catturaNTel}/>
+                <label htmlFor="user">Username</label><input id="user" type="text" value={username} readOnly/>
+                <label htmlFor="psw">Password</label><input id="psw" type="text" value={psw} onChange={catturaPsw}/>
+                <button className="blueButton" onClick={modificaCliente}>Modifica</button>
             </div>
 
             

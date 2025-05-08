@@ -70,15 +70,18 @@ function App() {
     <>
       <div className='flex flex-col gap-3'>
       <h1>Login Cliente</h1>
-        
+      <p>
+      Non sei registrato ? Registrati qui ➜ 
+      <Link to={"/RegistrazioneCliente"}> Registrati</Link>
+      </p>
+      <div className='flex flex-col gap-3 items-center'>
         <label htmlFor="user">Username</label>
         <input type="text" id="user" onChange={catturaUsername}/>
         <label htmlFor="psw">Password</label>
         <input type="password" id="psw" onChange={catturaPsw}/>
-        <p>
-          <button onClick={effettuaLogin}>Login</button>
-          <Link to={"/RegistrazioneCliente"}>Registrati</Link>
-        </p>
+        <button className="blueButton" onClick={effettuaLogin}>Login</button>
+      </div>
+        
       </div>
     </>
   )

@@ -6,7 +6,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #378f62;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -14,13 +14,19 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+input, select, textarea{
+  background-color: white;
+  color: black;
+}
+
 a {
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: x-large;
 }
 a:hover {
-  color: #535bf2;
+  color: #10522f;
 }
 
 body {
@@ -36,19 +42,38 @@ h1 {
   line-height: 1.1;
 }
 
-button {
+.redButton {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: red;
+  color: white;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: 0.25s;
 }
-button:hover {
-  border-color: #646cff;
+.redButton:hover {
+  background-color: #8c0707;
+  color: white;
+}
+
+.blueButton {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: rgb(43, 43, 255);
+  color: white;
+  cursor: pointer;
+  transition: 0.25s;
+}
+.blueButton:hover {
+  background-color: rgb(22, 22, 101);
+  color: white;
 }
 button:focus,
 button:focus-visible {

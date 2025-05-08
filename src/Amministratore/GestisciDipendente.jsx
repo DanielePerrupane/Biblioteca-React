@@ -115,7 +115,7 @@ function GestisciDipendente() {
             <NavBarOperatore/>
             <div>
                 <label htmlFor="cfDaRic">Inserisci Cf </label><input type="text" id="cfDaRic" onChange={catturaCfDaRic}/>
-                <button onClick={cercaOperatore}>Cerca</button>
+                <button className="blueButton" onClick={cercaOperatore}>Cerca</button>
             </div>
             {opTrovato && (
                 <div className="flex flex-col gap-3 items-center">
@@ -132,7 +132,7 @@ function GestisciDipendente() {
                         <option value="amministratore">amministratore</option>
                         <option value="operatore">operatore</option>
                     </select>
-                    <button onClick={modificaOperatore}>Modifica</button>
+                    <button className="blueButton" onClick={modificaOperatore}>Modifica</button>
                     
 
                 </div>

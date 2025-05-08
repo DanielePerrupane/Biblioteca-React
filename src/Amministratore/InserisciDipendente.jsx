@@ -108,7 +108,7 @@ function InserisciDipendente() {
                 <option value="2">Dipendente</option>
             </select>
             <p>
-                <button onClick={effettuaRegistrazione}>Inserisci</button>
+                <button className="blueButton" onClick={effettuaRegistrazione}>Inserisci</button>
                 
             </p>
             </div>

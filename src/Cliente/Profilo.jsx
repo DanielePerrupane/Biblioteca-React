@@ -36,23 +36,21 @@ function Profilo() {
     },[])
 
     return(
-        <div className="w-200 h-500 bg-amber-50 rounded-2xl ">
+        <div className="w-200 h-500 rounded-2xl ">
             <div>
 
-                <Logout></Logout>
-                <h2 className="text-black">Benvenuto/a nel tuo profilo {user} </h2>
+            <h2 className="text-black">Username: {user} </h2>
+            <p><Logout/></p>
                 
             </div>
 
-            <p className="bg-amber-100 text-shadow-amber-100">
+            <p className=" text-shadow-amber-100">
                 <Link to="/Profilo" state={{user:user}}>| Home Page |</Link>
                 <Link to="/Prenota" state={{user:user}}> Prenota |</Link>
                 <Link to="/AreaPersonale" state={{user:user}}> Area Personale |</Link>
             </p>
 
             <div className="text-black">
-                Qui visualizzo i libri prenotati 
-                
                 <DataTable value={listaLibriPrenotati} paginator rows={3} emptyMessage="Nessun libro prenotato :(">
                     <Column field="autoreLibro" header="Autore" sortable/>
                     <Column field="titoloLibro" header="Titolo" sortable/>

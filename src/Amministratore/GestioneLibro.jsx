@@ -1,14 +1,16 @@
 import {Link} from "react-router-dom";
 import {useState, useEffect} from "react"; 
-
+import {DataTable} from "primereact/datatable"
+import { Column } from "primereact/column";
 import NavBarLibro from "./NavBarLibro";
 import LogoutOperatore from "./LogoutOperatore";
+import NavBarOperatore from "./NavBarOperatore";
 function GestioneLibro() {
 
     const [titolo, setTitolo] = useState('');
     const [libroTrovato, setLibroTrovato] = useState(null);
     const [lista, setListaGeneri] = useState([]);
-
+    const [listaLibri, setListaLibri] = useState([]);
     const [titoloMod, setTitoloMod] = useState('');
     const [autoreMod, setAutoreMod] = useState('');
     const [genereMod, setGenereMod] = useState('');
@@ -155,18 +157,36 @@ function GestioneLibro() {
         })
     }
 
+    function prendiListaLibri()
+    {
+        fetch("http://localhost:8080/Biblioteca/Libro/prendiLibri",{
+            method: 'get'
+        })
+        .then(response => {
+            response.json().then(libri => {
+                console.log("lista libri: ",libri);
+                setListaLibri(libri);
+            })
+        })
+    }
+
+    useEffect(() => {
+        prendiListaLibri();
+    }, [])
+
     return(
         <>
             <div>
                 <h1>Gestione Libro </h1>
-                <LogoutOperatore/>
+                <LogoutOperatore/><br />
+                <NavBarOperatore/>
                 <NavBarLibro/>
             </div>
 
             <div className="">
                 
                 inserisci titolo <input type="text" onChange={catturaTitolo}/>
-                <button onClick={cercaLibro}>Cerca</button>
+                <button className="blueButton" onClick={cercaLibro}>Cerca</button>
             </div>
 
             
@@ -184,10 +204,25 @@ function GestioneLibro() {
                             ))}
                         </select>
                         <p>
-                            <button onClick={modificaLibro}>Modifica</button>
-                            <button onClick={eliminaLibro}>Elimina</button>
+                            <button className="blueButton" onClick={modificaLibro}>Modifica</button>
+                            <button className="redButton" onClick={eliminaLibro}>Elimina</button>
                         </p>
                     </div>
+                )}
+
+                {!libroTrovato && (
+                    <DataTable 
+                    value={listaLibri}
+                    paginator
+                    rows={3}
+                    >
+                        <Column sortable field="titoloLibro" header="Titolo"></Column>
+                        <Column sortable field="autoreLibro" header="Autore"></Column>
+                        <Column sortable field="costoGiornaliero" header="Costo Giornaliero"></Column>
+                        <Column sortable field="genere.nomeGenere" header="Genere"></Column>
+
+
+                    </DataTable>
                 )}
             
         </>

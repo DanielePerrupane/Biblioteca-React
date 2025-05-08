@@ -17,6 +17,7 @@ import InserisciGenere from './Amministratore/InserisciGenere.jsx';
 import 'primereact/resources/themes/lara-light-indigo/theme.css'; // Tema PrimeReact
 import 'primereact/resources/primereact.min.css';                 // Stili base dei componenti
 import 'primeflex/primeflex.css';                                 // Layout PrimeFlex
+import GestisciPrenotazione from './Amministratore/GestisciPrenotazione.jsx';
 
 
 
@@ -75,6 +76,10 @@ const router = createBrowserRouter([
     element: <InserisciGenere/>
   }
   ,
+  {
+    path: "/GestisciPrenotazione",
+    element: <GestisciPrenotazione/>
+  }
 
 
 ])

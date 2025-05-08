@@ -7,7 +7,7 @@ function Logout() {
         navigate("/")
     }
     return(
-        <><button onClick={eseguiLogout}>Logout</button></>
+        <><button className="redButton" onClick={eseguiLogout}>Logout</button></>
     )
 }
 

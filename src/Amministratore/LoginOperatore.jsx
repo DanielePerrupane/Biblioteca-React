@@ -61,7 +61,7 @@ function LoginOperatore() {
             <label htmlFor="username">Username</label><input className="w-50" type="text" id="username" onChange={catturaUser}/>
             <label htmlFor="psw">Password</label><input className="w-50" type="password" id="psw" onChange={catturaPsw}/>
             <p>
-                <button onClick={effettuaLogin}>Login</button> 
+                <button className="blueButton" onClick={effettuaLogin}>Login</button> 
             </p>
 
         </div>
